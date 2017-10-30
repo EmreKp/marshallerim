@@ -12,7 +12,7 @@ import java.io.StringReader;
 
 @Service
 public class MainService {
-    public Request turnToObject(String json) throws JAXBException {
+    public Request convertToObject(String json) throws JAXBException {
         System.setProperty("javax.xml.bind.context.factory","org.eclipse.persistence.jaxb.JAXBContextFactory");
         JAXBContext jaxbContext=JAXBContext.newInstance(Request.class);
         Unmarshaller unmarshaller=jaxbContext.createUnmarshaller();

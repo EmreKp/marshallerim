@@ -20,8 +20,8 @@ public class MainController {
     }
 
     @RequestMapping("/requestAl")
-    public @ResponseBody String donder(@RequestBody String json) throws JAXBException {
-        Request requestObj=this.mainService.turnToObject(json);
+    public @ResponseBody String example(@RequestBody String json) throws JAXBException {
+        Request requestObj=this.mainService.convertToObject(json);
         return requestObj.getPass();
     }
 }
