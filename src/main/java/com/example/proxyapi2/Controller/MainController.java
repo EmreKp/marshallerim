@@ -3,12 +3,14 @@ package com.example.proxyapi2.Controller;
 import com.example.proxyapi2.Model.Request;
 import com.example.proxyapi2.Service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.web.bind.annotation.*;
 
-import javax.xml.bind.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import java.util.Map;
 
 @RestController
 public class MainController {
@@ -19,9 +21,8 @@ public class MainController {
         this.mainService=mainService;
     }
 
-    @RequestMapping("/requestAl")
-    public @ResponseBody String example(@RequestBody String json) throws JAXBException {
-        Request requestObj=this.mainService.convertToObject(json);
-        return requestObj.getPass();
+    @RequestMapping(value = "/",params = {"cm=hdb","action"})
+    public @ResponseBody String example(@RequestParam("action") String action){
+        return action;
     }
 }
