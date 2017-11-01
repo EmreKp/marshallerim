@@ -21,17 +21,4 @@ public class MainService {
         JAXBElement<Request> javaObj=unmarshaller.unmarshal(source,Request.class);
         return javaObj.getValue();
     }
-
-    public String deneme(){
-        //invokea null denince method statik olacak ya da başka bişey en kolayı bu
-        return "deneme";
-    }
-
-    public int intAl(){
-        return 3;
-    }
-
-    public int intBak(){
-        return 5;
-    }
 }
